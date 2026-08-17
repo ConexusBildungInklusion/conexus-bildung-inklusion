@@ -120,8 +120,8 @@
     }
 
     .brand img {
-      width: 96px;
-      height: 96px;
+      width: 125px;
+      height: 125px;
       object-fit: contain;
     }
 
@@ -650,6 +650,13 @@
       margin-bottom: 24px;
     }
 
+    .download-card .button {
+      width: 100%;
+      min-height: 58px;
+      padding: 15px 18px;
+      text-align: center;
+    }
+
     /* CONTACT */
 
     .contact-section {
@@ -703,6 +710,153 @@
       gap: 20px;
     }
 
+
+    /* SEMINARBEREICHE – stärkere visuelle Trennung */
+
+    .seminar-category {
+      padding: 34px 36px 38px;
+      border-radius: 28px;
+      background: white;
+      box-shadow: 0 10px 30px rgba(37,85,78,0.05);
+      border-top: 7px solid var(--green);
+    }
+
+    #paedagogik {
+      border-top-color: var(--gold);
+      background: linear-gradient(180deg, rgba(184,135,43,0.08), #ffffff 130px);
+    }
+
+    #gesundheitswesen {
+      border-top-color: var(--terracotta);
+      background: linear-gradient(180deg, rgba(182,107,85,0.08), #ffffff 130px);
+    }
+
+    #resilienz {
+      border-top-color: var(--bluegrey);
+      background: linear-gradient(180deg, rgba(96,115,135,0.08), #ffffff 130px);
+    }
+
+    #inklusion {
+      background: linear-gradient(180deg, rgba(37,85,78,0.08), #ffffff 130px);
+    }
+
+    .seminar-category .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+      background: rgba(37,85,78,0.10);
+      color: var(--green);
+    }
+
+    #paedagogik .section-kicker {
+      background: rgba(184,135,43,0.12);
+      color: #8B651F;
+    }
+
+    #gesundheitswesen .section-kicker {
+      background: rgba(182,107,85,0.12);
+      color: #92523F;
+    }
+
+    #resilienz .section-kicker {
+      background: rgba(96,115,135,0.13);
+      color: #4E6074;
+    }
+
+    .seminar-category h3 {
+      margin-bottom: 24px;
+    }
+
+    /* RECHTLICHE HINWEISE */
+
+    .legal-section {
+      background: var(--cream);
+      padding: 80px 0;
+      border-top: 1px solid rgba(37,85,78,0.10);
+      scroll-margin-top: 20px;
+    }
+
+    .legal-section + .legal-section {
+      padding-top: 20px;
+    }
+
+    .legal-wrap {
+      max-width: 900px;
+    }
+
+    .legal-wrap h2 {
+      color: var(--green);
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      margin-bottom: 26px;
+    }
+
+    .legal-wrap h3 {
+      color: var(--green);
+      font-size: 1.3rem;
+      margin: 28px 0 8px;
+    }
+
+    .legal-wrap p {
+      margin-bottom: 14px;
+    }
+
+    .legal-wrap a {
+      color: var(--green);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.88);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* NACH-OBEN-BUTTON */
+
+    .back-to-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--red);
+      color: white;
+      font-family: "League Spartan", sans-serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.18);
+      z-index: 100;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: 0.2s ease;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-2px);
+    }
+
     /* MOBILE */
 
     @media (max-width: 1000px) {
@@ -740,8 +894,8 @@
       }
 
       .brand img {
-        width: 74px;
-        height: 74px;
+        width: 92px;
+        height: 92px;
       }
 
       .brand-copy strong {
@@ -789,6 +943,17 @@
 
       .footer-inner {
         flex-direction: column;
+      }
+
+      .seminar-category {
+        padding: 26px 20px 30px;
+      }
+
+      .back-to-top {
+        right: 16px;
+        bottom: 16px;
+        width: 48px;
+        height: 48px;
       }
 
       .top-green-shape {
@@ -974,7 +1139,7 @@
 
       <div class="seminar-category" id="inklusion">
 
-        <div class="section-kicker">Inklusion & Teilhabe</div>
+        <div class="section-kicker">01 · Inklusion & Teilhabe</div>
         <h3>Seminarangebote</h3>
 
         <div class="seminar-list">
@@ -1008,7 +1173,7 @@
 
       <div class="seminar-category" id="paedagogik">
 
-        <div class="section-kicker">Pädagogik & Ausbildung</div>
+        <div class="section-kicker">02 · Pädagogik & Ausbildung</div>
         <h3>Seminarangebote</h3>
 
         <div class="seminar-list">
@@ -1038,7 +1203,7 @@
 
       <div class="seminar-category" id="gesundheitswesen">
 
-        <div class="section-kicker">Gesundheits- & Sozialwesen</div>
+        <div class="section-kicker">03 · Gesundheits- & Sozialwesen</div>
         <h3>Seminarangebote</h3>
 
         <div class="seminar-list">
@@ -1060,7 +1225,7 @@
 
       <div class="seminar-category" id="resilienz">
 
-        <div class="section-kicker">Gesundheit & Resilienz</div>
+        <div class="section-kicker">04 · Gesundheit & Resilienz</div>
         <h3>Seminarangebote</h3>
 
         <div class="seminar-list">
@@ -1329,6 +1494,115 @@
   </section>
 
 
+
+  <section class="legal-section" id="impressum">
+    <div class="container legal-wrap">
+      <div class="section-kicker">Rechtliches</div>
+      <h2>Impressum</h2>
+
+      <p><strong>Angaben gemäß § 5 DDG</strong></p>
+      <p>
+        Niklas Gorczynski<br>
+        Conexus – Bildung &amp; Inklusion<br>
+        Schönaustraße 19<br>
+        40625 Düsseldorf
+      </p>
+
+      <h3>Kontakt</h3>
+      <p>
+        Telefon: <a href="tel:+4915738993227">01573 / 8993227</a><br>
+        E-Mail:
+        <a href="mailto:conexus.bildung.inklusion@web.de">
+          conexus.bildung.inklusion@web.de
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <section class="legal-section" id="datenschutz">
+    <div class="container legal-wrap">
+      <div class="section-kicker">Rechtliches</div>
+      <h2>Datenschutzerklärung</h2>
+
+      <h3>1. Verantwortlicher</h3>
+      <p>
+        Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br>
+        Niklas Gorczynski<br>
+        Conexus – Bildung &amp; Inklusion<br>
+        Schönaustraße 19<br>
+        40625 Düsseldorf<br>
+        E-Mail:
+        <a href="mailto:conexus.bildung.inklusion@web.de">
+          conexus.bildung.inklusion@web.de
+        </a><br>
+        Telefon: <a href="tel:+4915738993227">01573 / 8993227</a>
+      </p>
+
+      <h3>2. Hosting über GitHub Pages</h3>
+      <p>
+        Diese Website wird über GitHub Pages bereitgestellt. Beim Aufruf der
+        Website verarbeitet GitHub technisch erforderliche Verbindungsdaten,
+        insbesondere die IP-Adresse des aufrufenden Geräts. Die Verarbeitung
+        erfolgt, soweit sie in meinem Verantwortungsbereich liegt, auf Grundlage
+        meines berechtigten Interesses an einer sicheren und zuverlässigen
+        Bereitstellung dieser Website gemäß Art. 6 Abs. 1 lit. f DSGVO.
+      </p>
+      <p>
+        Anbieter ist GitHub, Inc., 88 Colin P Kelly Jr Street, San Francisco,
+        CA 94107, USA. Eine Verarbeitung personenbezogener Daten kann daher auch
+        außerhalb der Europäischen Union stattfinden. Weitere Informationen
+        finden Sie in der Datenschutzerklärung von GitHub:
+        <a href="https://docs.github.com/site-policy/privacy-policies/github-privacy-statement"
+           target="_blank" rel="noopener noreferrer">
+          GitHub Privacy Statement
+        </a>.
+      </p>
+
+      <h3>3. Kontaktaufnahme</h3>
+      <p>
+        Wenn Sie mich per E-Mail oder telefonisch kontaktieren, werden die von
+        Ihnen übermittelten Angaben zur Bearbeitung Ihrer Anfrage und für
+        mögliche Anschlussfragen verarbeitet. Rechtsgrundlage ist je nach Inhalt
+        der Anfrage Art. 6 Abs. 1 lit. b DSGVO oder Art. 6 Abs. 1 lit. f DSGVO.
+        Die Daten werden gelöscht, sobald sie für den jeweiligen Zweck nicht
+        mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten
+        entgegenstehen.
+      </p>
+
+      <h3>4. Google Fonts</h3>
+      <p>
+        Zur einheitlichen Darstellung von Schriftarten werden auf dieser Website
+        derzeit Google Fonts eingebunden. Beim Aufruf der Website kann dabei eine
+        Verbindung zu Servern von Google hergestellt und insbesondere die
+        IP-Adresse des aufrufenden Geräts verarbeitet werden. Anbieter ist
+        Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA.
+        Eine Verarbeitung personenbezogener Daten kann daher auch außerhalb der
+        Europäischen Union stattfinden.
+      </p>
+
+      <h3>5. Cookies, Analyse und Kontaktformulare</h3>
+      <p>
+        Auf dieser Website setze ich derzeit keine eigenen Analyse- oder
+        Marketingtools, kein Kontaktformular und keine eigenen nicht technisch
+        erforderlichen Cookies ein.
+      </p>
+
+      <h3>6. Ihre Rechte</h3>
+      <p>
+        Sie haben im Rahmen der gesetzlichen Voraussetzungen insbesondere das
+        Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der
+        Verarbeitung, Datenübertragbarkeit und Widerspruch. Außerdem besteht
+        ein Beschwerderecht bei einer zuständigen Datenschutzaufsichtsbehörde.
+      </p>
+
+      <h3>7. Aktualität</h3>
+      <p>
+        Diese Datenschutzerklärung wird angepasst, wenn sich die eingesetzten
+        Dienste oder die Datenverarbeitung auf dieser Website ändern.
+      </p>
+    </div>
+  </section>
+
   <footer>
 
     <div class="container footer-inner">
@@ -1339,11 +1613,31 @@
 
       <div>
         Niklas Gorczynski · Fachdozent | Bildungsreferent | AEVO-Ausbilder
+        <div class="footer-links">
+          <a href="#impressum">Impressum</a>
+          <a href="#datenschutz">Datenschutz</a>
+        </div>
       </div>
 
     </div>
   </footer>
 
+
+  <a href="#start" class="back-to-top" id="backToTop" aria-label="Nach oben">
+    ↑
+  </a>
+
+  <script>
+    const backToTop = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 500) {
+        backToTop.classList.add("visible");
+      } else {
+        backToTop.classList.remove("visible");
+      }
+    });
+  </script>
+
 </body>
 </html>
- 
