@@ -82,7 +82,7 @@
 
     .top-green-shape {
       position: absolute;
-      left: -170px;
+      left: -360px;
       top: -210px;
       width: 430px;
       height: 540px;
@@ -201,7 +201,7 @@
     .hero h1 {
       color: var(--green);
       font-size: clamp(4rem, 6.5vw, 6.7rem);
-      line-height: 0.9;
+      line-height: 1.03;
       letter-spacing: -0.04em;
       max-width: 700px;
     }
@@ -587,6 +587,69 @@
       margin-bottom: 8px;
     }
 
+
+    /* DOWNLOADS */
+
+    .downloads-section {
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .downloads-heading {
+      max-width: 780px;
+      margin: 0 auto 42px;
+    }
+
+    .downloads-heading .section-intro {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .download-card {
+      background: white;
+      border-radius: 28px;
+      padding: 34px 30px;
+      border: 1px solid rgba(37,85,78,0.08);
+    }
+
+    .download-symbol {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      background: var(--green);
+      color: white;
+      font-family: "League Spartan", sans-serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+    }
+
+    .download-card:nth-child(2) .download-symbol {
+      background: var(--red);
+    }
+
+    .download-card h3 {
+      color: var(--green);
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+
+    .download-card p {
+      font-size: 0.96rem;
+      margin-bottom: 24px;
+    }
+
     /* CONTACT */
 
     .contact-section {
@@ -710,6 +773,7 @@
       .seminar-list,
       .about-grid,
       .why-grid,
+      .download-grid,
       .contact-grid {
         grid-template-columns: 1fr;
       }
@@ -730,7 +794,7 @@
       .top-green-shape {
         width: 270px;
         height: 340px;
-        left: -170px;
+        left: -230px;
         top: -170px;
       }
 
@@ -769,6 +833,7 @@
           <li><a href="#seminare">Seminare</a></li>
           <li><a href="#ueber-mich">Über mich</a></li>
           <li><a href="#individuell">Individuelle Angebote</a></li>
+          <li><a href="#downloads">Downloads</a></li>
           <li><a href="#kontakt">Kontakt</a></li>
           <li><a class="nav-cta" href="#kontakt">Anfrage stellen</a></li>
         </ul>
@@ -1154,6 +1219,77 @@
   </section>
 
 
+
+  <section class="downloads-section" id="downloads">
+
+    <div class="container">
+
+      <div class="downloads-heading">
+
+        <div class="section-kicker">Downloads</div>
+
+        <h2 class="section-title">
+          Alle Informationen auf einen Blick.
+        </h2>
+
+        <p class="section-intro">
+          Hier können Sie mein aktuelles Seminarportfolio und mein
+          Referentenprofil direkt als PDF herunterladen.
+        </p>
+
+      </div>
+
+      <div class="download-grid">
+
+        <article class="download-card">
+
+          <div class="download-symbol">↓</div>
+
+          <h3>Seminarportfolio</h3>
+
+          <p>
+            Alle 17 Seminarangebote, Bildungsbereiche, Formate und
+            Themenschwerpunkte von Conexus im Überblick.
+          </p>
+
+          <a
+            href="conexus-seminarportfolio.pdf"
+            download
+            class="button button-red"
+          >
+            Seminarportfolio herunterladen
+          </a>
+
+        </article>
+
+        <article class="download-card">
+
+          <div class="download-symbol">↓</div>
+
+          <h3>Referentenprofil</h3>
+
+          <p>
+            Qualifikationen, Themenschwerpunkte und berufliche Praxis
+            kompakt als PDF zusammengefasst.
+          </p>
+
+          <a
+            href="niklas-gorczynski-referentenprofil.pdf"
+            download
+            class="button button-outline"
+          >
+            Referentenprofil herunterladen
+          </a>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
   <section class="contact-section" id="kontakt">
 
     <div class="container contact-grid">
@@ -1210,3 +1346,4 @@
 
 </body>
 </html>
+ 
