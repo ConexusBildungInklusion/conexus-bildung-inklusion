@@ -8,34 +8,35 @@
 
   <meta
     name="description"
-    content="Praxisnahe Fachvorträge, Workshops und Seminare zu Inklusion, Pädagogik, Gesundheits- und Sozialwesen sowie psychischer Gesundheit."
+    content="Praxisnahe Fachvorträge, Workshops und Seminare zu Inklusion, Pädagogik, Gesundheits- und Sozialwesen sowie Gesundheit und Resilienz."
   >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=League+Spartan:wght@600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=League+Spartan:wght@500;600;700;800&display=swap"
     rel="stylesheet"
   >
 
   <style>
-
     :root {
       --green: #25554E;
+      --green-dark: #17413B;
       --red: #E94143;
       --cream: #F8F6F2;
       --beige: #EEE7DB;
       --text: #333333;
-      --bluegrey: #607387;
       --gold: #B8872B;
       --terracotta: #B66B55;
+      --bluegrey: #607387;
+      --white: #ffffff;
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html {
@@ -50,404 +51,589 @@
       overflow-x: hidden;
     }
 
-    h1,
-    h2,
-    h3,
-    nav,
-    .button {
+    h1, h2, h3, h4, nav, .button {
       font-family: "League Spartan", sans-serif;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
     }
 
     a {
       color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
     }
 
     /* HEADER */
 
     header {
+      position: relative;
+      background: var(--cream);
       min-height: 100vh;
-      position: relative;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
     }
 
-    .green-shape {
+    .top-green-shape {
       position: absolute;
-      width: 480px;
-      height: 470px;
+      left: -170px;
+      top: -210px;
+      width: 430px;
+      height: 540px;
       background: var(--green);
-      top: -180px;
-      left: -160px;
-      border-radius: 42% 58% 65% 35% / 55% 39% 61% 45%;
-      transform: rotate(-10deg);
+      border-radius: 48% 52% 63% 37% / 44% 37% 63% 56%;
+      transform: rotate(-8deg);
       z-index: 0;
     }
 
-    .red-shape {
+    .bottom-red-shape {
       position: absolute;
-      width: 500px;
-      height: 430px;
+      right: -120px;
+      bottom: -180px;
+      width: 420px;
+      height: 420px;
       background: var(--red);
-      right: -210px;
-      bottom: -190px;
-      border-radius: 66% 34% 41% 59% / 47% 56% 44% 53%;
-      transform: rotate(-13deg);
+      border-radius: 62% 38% 34% 66% / 48% 58% 42% 52%;
       z-index: 0;
     }
 
-    nav {
-      position: relative;
-      z-index: 10;
-      max-width: 1200px;
-      width: calc(100% - 60px);
-      margin: 0 auto;
-      padding: 34px 0;
+    .navbar {
+      min-height: 110px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 30px;
+      position: relative;
+      z-index: 20;
     }
 
     .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand img {
+      width: 96px;
+      height: 96px;
+      object-fit: contain;
+    }
+
+    .brand-copy strong {
+      display: block;
       color: var(--green);
-      text-decoration: none;
-      font-size: 1.35rem;
-      font-weight: 700;
+      font-family: "League Spartan", sans-serif;
+      font-size: 1.25rem;
       line-height: 1.1;
     }
 
-    .brand span {
+    .brand-copy span {
       display: block;
-      font-family: "Lato", sans-serif;
-      font-size: 0.72rem;
-      font-weight: 400;
-      margin-top: 4px;
-      letter-spacing: 0.03em;
+      margin-top: 5px;
+      color: var(--green);
+      font-size: 0.75rem;
+    }
+
+    .brand-copy i {
+      color: var(--red);
+      font-style: normal;
+      padding: 0 5px;
     }
 
     .nav-links {
       display: flex;
+      align-items: center;
+      gap: 28px;
       list-style: none;
-      gap: 34px;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--green);
-      font-size: 1rem;
-      font-weight: 700;
+      color: var(--green-dark);
+      font-weight: 600;
     }
 
     .nav-links a:hover {
       color: var(--red);
     }
 
+    .nav-cta {
+      background: var(--red);
+      color: white;
+      padding: 13px 22px;
+      border-radius: 999px;
+    }
+
+    .nav-cta:hover {
+      color: white !important;
+      transform: translateY(-1px);
+    }
+
     /* HERO */
 
     .hero {
-      position: relative;
-      z-index: 2;
-      flex: 1;
-      max-width: 1200px;
-      width: calc(100% - 60px);
-      margin: auto;
-      display: flex;
+      min-height: calc(100vh - 110px);
+      display: grid;
+      grid-template-columns: 1fr 0.92fr;
+      gap: 70px;
       align-items: center;
-      padding: 60px 0 120px;
+      padding: 50px 0 110px;
+      position: relative;
+      z-index: 5;
     }
 
-    .hero-content {
-      max-width: 820px;
-    }
-
-    .eyebrow {
-      color: var(--green);
+    .hero-kicker,
+    .section-kicker {
+      color: var(--red);
       text-transform: uppercase;
-      letter-spacing: 0.14em;
       font-weight: 700;
-      margin-bottom: 20px;
-      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      font-size: 0.8rem;
     }
 
-    h1 {
+    .hero-kicker {
       color: var(--green);
-      font-size: clamp(4rem, 8vw, 7.3rem);
-      line-height: 0.88;
-      letter-spacing: -0.035em;
-      margin-bottom: 32px;
-      max-width: 900px;
+      margin-bottom: 22px;
     }
 
-    .red-word {
+    .hero h1 {
+      color: var(--green);
+      font-size: clamp(4rem, 6.5vw, 6.7rem);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      max-width: 700px;
+    }
+
+    .hero h1 span {
       color: var(--red);
     }
 
-    .hero-text {
-      font-size: 1.3rem;
-      max-width: 700px;
-      margin-bottom: 38px;
-    }
-
-    .accent-line {
-      width: 230px;
-      height: 7px;
+    .scribble {
+      width: 155px;
+      height: 8px;
       background: var(--red);
-      border-radius: 50%;
+      border-radius: 80%;
       transform: rotate(-2deg);
-      margin: 22px 0 35px;
+      margin: 28px 0 30px;
     }
 
-    .buttons {
+    .hero-copy {
+      font-size: 1.13rem;
+      max-width: 650px;
+      margin-bottom: 34px;
+    }
+
+    .hero-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
     }
 
     .button {
-      display: inline-block;
-      text-decoration: none;
-      padding: 15px 25px;
-      border-radius: 100px;
-      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 24px;
+      border-radius: 999px;
+      font-weight: 700;
       transition: 0.2s ease;
     }
 
-    .button-primary {
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-red {
       background: var(--red);
       color: white;
     }
 
-    .button-primary:hover {
-      transform: translateY(-2px);
-    }
-
-    .button-secondary {
+    .button-outline {
       border: 2px solid var(--green);
       color: var(--green);
+      background: transparent;
     }
 
-    .button-secondary:hover {
+    .button-outline:hover {
       background: var(--green);
       color: white;
     }
 
-    /* ALLGEMEINE SEKTIONEN */
+    .hero-photo-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-photo {
+      width: min(100%, 520px);
+      aspect-ratio: 0.95;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 42% 58% 46% 54% / 38% 39% 61% 62%;
+      box-shadow: 0 22px 55px rgba(37,85,78,0.15);
+    }
+
+    .hero-photo-wrap::after {
+      content: "";
+      position: absolute;
+      width: 190px;
+      height: 190px;
+      right: -20px;
+      bottom: -25px;
+      background: var(--red);
+      border-radius: 58% 42% 62% 38% / 48% 57% 43% 52%;
+      z-index: -1;
+    }
+
+    /* SECTION */
 
     section {
-      padding: 110px 30px;
+      padding: 105px 0;
       position: relative;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .section-label {
-      color: var(--red);
-      text-transform: uppercase;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      font-size: 0.8rem;
-      margin-bottom: 12px;
-    }
-
-    h2 {
+    .section-title {
       color: var(--green);
-      font-size: clamp(2.5rem, 5vw, 4.4rem);
+      font-size: clamp(2.7rem, 4vw, 4.3rem);
       line-height: 1;
-      margin-bottom: 25px;
+      margin-top: 8px;
+      margin-bottom: 22px;
     }
 
-    .intro {
-      max-width: 740px;
-      font-size: 1.14rem;
-      margin-bottom: 50px;
+    .section-intro {
+      font-size: 1.08rem;
+      max-width: 760px;
+      margin-bottom: 45px;
     }
 
-    /* BILDUNGSBEREICHE */
+    /* SEMINARBEREICHE */
 
-    .areas {
+    .seminar-section {
       background: white;
     }
 
-    .cards {
+    .seminar-heading {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 48px;
+    }
+
+    .seminar-heading .section-intro {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .area-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .area-card {
+      background: var(--beige);
+      border-radius: 28px;
+      padding: 28px 25px 25px;
+      min-height: 330px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .area-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.06);
+    }
+
+    .area-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.55rem;
+      font-family: "League Spartan", sans-serif;
+      margin-bottom: 18px;
+    }
+
+    .icon-green { background: var(--green); }
+    .icon-gold { background: var(--gold); }
+    .icon-terra { background: var(--terracotta); }
+    .icon-blue { background: var(--bluegrey); }
+
+    .area-number {
+      color: var(--green);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 14px;
+    }
+
+    .area-card h3 {
+      color: var(--green);
+      font-size: 1.55rem;
+      line-height: 1.05;
+      margin-bottom: 15px;
+    }
+
+    .area-card p {
+      font-size: 0.96rem;
+      flex-grow: 1;
+    }
+
+    .area-card a {
+      margin-top: 22px;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    /* DETAIL-SEMINARE */
+
+    .seminar-detail-section {
+      background: var(--cream);
+    }
+
+    .seminar-category {
+      margin-bottom: 70px;
+      scroll-margin-top: 20px;
+    }
+
+    .seminar-category:last-child {
+      margin-bottom: 0;
+    }
+
+    .seminar-category h3 {
+      color: var(--green);
+      font-size: 2.3rem;
+      margin-bottom: 22px;
+    }
+
+    .seminar-list {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      gap: 16px;
     }
 
-    .card {
-      background: var(--beige);
-      border-radius: 34px;
-      padding: 38px;
-      min-height: 270px;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .number {
-      font-family: "League Spartan", sans-serif;
-      font-size: 0.95rem;
+    .seminar-item {
+      background: white;
+      border-radius: 18px;
+      padding: 20px 22px;
+      border-left: 5px solid var(--green);
       font-weight: 700;
-      margin-bottom: 40px;
+      color: var(--green-dark);
     }
 
-    .card h3 {
-      color: var(--green);
-      font-size: 2rem;
-      line-height: 1;
-      margin-bottom: 14px;
-      max-width: 400px;
-    }
+    .seminar-item.gold { border-left-color: var(--gold); }
+    .seminar-item.terra { border-left-color: var(--terracotta); }
+    .seminar-item.blue { border-left-color: var(--bluegrey); }
 
-    .card p {
-      max-width: 440px;
-    }
+    /* ABOUT */
 
-    .card::after {
-      content: "";
-      position: absolute;
-      width: 110px;
-      height: 110px;
-      right: -35px;
-      bottom: -35px;
-      border-radius: 50%;
-      background: var(--green);
-      opacity: 0.07;
-    }
-
-    .inclusion {
-      border-top: 7px solid var(--green);
-    }
-
-    .education {
-      border-top: 7px solid var(--gold);
-    }
-
-    .social {
-      border-top: 7px solid var(--terracotta);
-    }
-
-    .health {
-      border-top: 7px solid var(--bluegrey);
-    }
-
-    /* ÜBER CONEXUS */
-
-    .about {
+    .about-section {
       background: var(--cream);
     }
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 80px;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 60px;
       align-items: center;
     }
 
-    .about-text p {
-      font-size: 1.1rem;
-      margin-bottom: 18px;
+    .about-copy p {
+      margin-bottom: 16px;
+      font-size: 1.06rem;
     }
 
-    .about-box {
+    .qualification-card {
       background: var(--green);
       color: white;
-      border-radius: 38px;
-      padding: 50px;
+      border-radius: 30px;
+      padding: 38px;
       position: relative;
       overflow: hidden;
     }
 
-    .about-box h3 {
-      font-size: 2.2rem;
+    .qualification-card::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      right: -70px;
+      bottom: -80px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+    }
+
+    .qualification-card h3 {
+      font-size: 2rem;
       margin-bottom: 20px;
     }
 
-    .about-box ul {
+    .qualification-card ul {
       list-style: none;
     }
 
-    .about-box li {
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255,255,255,.18);
+    .qualification-card li {
+      padding: 12px 0 12px 34px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      position: relative;
     }
 
-    .about-box li:last-child {
-      border-bottom: 0;
+    .qualification-card li:last-child {
+      border-bottom: none;
     }
 
-    /* INDIVIDUELLE ANGEBOTE */
+    .qualification-card li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: white;
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
 
-    .individual {
-      background: var(--beige);
+    /* WARUM */
+
+    .why-section {
+      background: white;
+    }
+
+    .why-heading {
       text-align: center;
+      margin-bottom: 45px;
     }
 
-    .individual .container {
-      max-width: 850px;
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
     }
 
-    .individual p {
-      font-size: 1.15rem;
-      margin-bottom: 32px;
+    .why-item {
+      text-align: center;
+      padding: 12px;
     }
 
-    /* KONTAKT */
+    .why-symbol {
+      width: 66px;
+      height: 66px;
+      border: 2px solid var(--green);
+      border-radius: 50%;
+      margin: 0 auto 17px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--green);
+      font-size: 1.6rem;
+      font-family: "League Spartan", sans-serif;
+    }
 
-    .contact {
+    .why-item h4 {
+      color: var(--green);
+      font-size: 1.14rem;
+      margin-bottom: 8px;
+    }
+
+    .why-item p {
+      font-size: 0.92rem;
+    }
+
+    /* INDIVIDUELL */
+
+    .custom-section {
+      background: white;
+      padding-top: 30px;
+    }
+
+    .custom-box {
+      background: var(--beige);
+      border-radius: 28px;
+      padding: 35px 40px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .custom-icon {
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "League Spartan", sans-serif;
+      font-size: 1.8rem;
+    }
+
+    .custom-box h3 {
+      color: var(--green);
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    /* CONTACT */
+
+    .contact-section {
       background: var(--green);
       color: white;
       overflow: hidden;
     }
 
-    .contact h2 {
-      color: white;
-      max-width: 700px;
-    }
-
-    .contact p {
-      max-width: 650px;
-      font-size: 1.15rem;
-      margin-bottom: 30px;
-    }
-
-    .contact a.email {
-      display: inline-block;
-      color: white;
-      font-weight: 700;
-      font-size: 1.2rem;
-      text-decoration-thickness: 2px;
-      text-underline-offset: 6px;
-    }
-
-    .contact::after {
+    .contact-section::after {
       content: "";
       position: absolute;
-      width: 480px;
-      height: 430px;
+      width: 360px;
+      height: 360px;
       background: var(--red);
-      right: -210px;
-      bottom: -250px;
-      border-radius: 65% 35% 53% 47% / 44% 58% 42% 56%;
+      right: -130px;
+      bottom: -190px;
+      border-radius: 58% 42% 57% 43% / 47% 61% 39% 53%;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 60px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-section h2 {
+      color: white;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      justify-content: center;
+      font-size: 1.07rem;
+      font-weight: 700;
     }
 
     footer {
-      background: var(--green);
-      color: rgba(255,255,255,.7);
-      padding: 25px 30px 45px;
+      background: var(--green-dark);
+      color: rgba(255,255,255,0.75);
+      padding: 26px 0;
       font-size: 0.85rem;
     }
 
-    footer .container {
-      border-top: 1px solid rgba(255,255,255,.18);
-      padding-top: 25px;
+    .footer-inner {
       display: flex;
       justify-content: space-between;
       gap: 20px;
@@ -455,258 +641,425 @@
 
     /* MOBILE */
 
-    @media (max-width: 800px) {
-
-      nav {
-        width: calc(100% - 36px);
-      }
-
+    @media (max-width: 1000px) {
       .nav-links {
         display: none;
       }
 
-      .green-shape {
-        width: 310px;
-        height: 300px;
-        top: -165px;
-        left: -170px;
-      }
-
-      .red-shape {
-        width: 310px;
-        height: 290px;
-        right: -180px;
-        bottom: -100px;
-      }
-
       .hero {
-        width: calc(100% - 36px);
-        padding-top: 50px;
-      }
-
-      h1 {
-        font-size: clamp(3.4rem, 17vw, 5.5rem);
-      }
-
-      .hero-text {
-        font-size: 1.08rem;
-      }
-
-      section {
-        padding: 80px 20px;
-      }
-
-      .cards {
         grid-template-columns: 1fr;
+        gap: 45px;
+        padding-top: 60px;
       }
 
-      .card {
-        min-height: auto;
-        padding: 30px;
+      .hero-photo-wrap {
+        max-width: 620px;
+        margin: 0 auto;
       }
 
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
+      .area-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .about-box {
-        padding: 35px;
-      }
-
-      footer .container {
-        flex-direction: column;
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
+    @media (max-width: 720px) {
+      .container {
+        width: min(100% - 30px, 1180px);
+      }
+
+      .navbar {
+        min-height: 90px;
+      }
+
+      .brand img {
+        width: 74px;
+        height: 74px;
+      }
+
+      .brand-copy strong {
+        font-size: 1rem;
+      }
+
+      .brand-copy span {
+        font-size: 0.62rem;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 45px 0 90px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.4rem, 17vw, 5.4rem);
+      }
+
+      .hero-photo {
+        max-height: 540px;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .area-grid,
+      .seminar-list,
+      .about-grid,
+      .why-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .custom-box {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .custom-icon {
+        margin: 0 auto;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+
+      .top-green-shape {
+        width: 270px;
+        height: 340px;
+        left: -170px;
+        top: -170px;
+      }
+
+      .bottom-red-shape {
+        width: 250px;
+        height: 250px;
+        right: -130px;
+        bottom: -120px;
+      }
+    }
   </style>
 </head>
-
 
 <body>
 
   <header id="start">
 
-    <div class="green-shape"></div>
-    <div class="red-shape"></div>
+    <div class="top-green-shape"></div>
+    <div class="bottom-red-shape"></div>
 
-    <nav>
+    <div class="container">
 
-      <a href="#start" class="brand">
-        CONEXUS
-        <span>Bildung & Inklusion</span>
-      </a>
+      <nav class="navbar">
 
-      <ul class="nav-links">
-        <li><a href="#angebote">Seminare</a></li>
-        <li><a href="#ueber-mich">Über mich</a></li>
-        <li><a href="#individuell">Individuell</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-      </ul>
+        <a class="brand" href="#start">
+          <img src="logo-conexus.png" alt="Conexus – Bildung & Inklusion Logo">
 
-    </nav>
+          <div class="brand-copy">
+            <strong>Conexus – Bildung & Inklusion</strong>
+            <span>Verbindend <i>|</i> Inklusiv <i>|</i> Zukunftsorientiert</span>
+          </div>
+        </a>
 
+        <ul class="nav-links">
+          <li><a href="#start">Start</a></li>
+          <li><a href="#seminare">Seminare</a></li>
+          <li><a href="#ueber-mich">Über mich</a></li>
+          <li><a href="#individuell">Individuelle Angebote</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a class="nav-cta" href="#kontakt">Anfrage stellen</a></li>
+        </ul>
 
-    <div class="hero">
+      </nav>
 
-      <div class="hero-content">
+      <div class="hero">
 
-        <div class="eyebrow">
-          Fachvorträge · Workshops · Seminare
+        <div>
+          <div class="hero-kicker">
+            Fachvorträge · Workshops · Seminare
+          </div>
+
+          <h1>
+            Bildung,<br>
+            die <span>verbindet.</span>
+          </h1>
+
+          <div class="scribble"></div>
+
+          <p class="hero-copy">
+            Praxisnahe Bildungsangebote für Unternehmen, Bildungsträger und
+            soziale Einrichtungen – fachlich fundiert, verständlich vermittelt
+            und mit einem klaren Blick auf Teilhabe und Praxis.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#seminare" class="button button-red">Seminare entdecken</a>
+            <a href="#kontakt" class="button button-outline">Kontakt aufnehmen</a>
+          </div>
         </div>
 
-        <h1>
-          Bildung,<br>
-          die <span class="red-word">verbindet.</span>
-        </h1>
-
-        <div class="accent-line"></div>
-
-        <p class="hero-text">
-          Praxisnahe Bildungsangebote für Unternehmen,
-          Bildungsträger und soziale Einrichtungen –
-          fachlich fundiert, verständlich vermittelt
-          und mit einem klaren Blick auf Teilhabe und Praxis.
-        </p>
-
-        <div class="buttons">
-          <a href="#angebote" class="button button-primary">
-            Seminare entdecken
-          </a>
-
-          <a href="#kontakt" class="button button-secondary">
-            Kontakt aufnehmen
-          </a>
+        <div class="hero-photo-wrap">
+          <img
+            class="hero-photo"
+            src="niklas-portrait.jpg"
+            alt="Niklas Gorczynski"
+          >
         </div>
 
       </div>
 
     </div>
-
   </header>
 
 
-
-  <section class="areas" id="angebote">
+  <section class="seminar-section" id="seminare">
 
     <div class="container">
 
-      <div class="section-label">Seminarportfolio</div>
+      <div class="seminar-heading">
+        <div class="section-kicker">Seminarportfolio</div>
 
-      <h2>
-        Vier Bildungsbereiche.<br>
-        Ein gemeinsamer Anspruch.
-      </h2>
+        <h2 class="section-title">
+          Vier Bildungsbereiche.<br>
+          Ein gemeinsamer Anspruch.
+        </h2>
 
-      <p class="intro">
-        Meine Fachvorträge, Workshops und Seminare verbinden
-        fundiertes Fachwissen mit konkreter Praxisrelevanz.
-        Alle Angebote können individuell an Zielgruppe,
-        zeitlichen Rahmen und fachliche Schwerpunkte angepasst werden.
-      </p>
+        <p class="section-intro">
+          Meine Fachvorträge, Workshops und Seminare verbinden fundiertes
+          Fachwissen mit konkreter Praxisrelevanz. Alle Angebote können
+          individuell an Zielgruppe, zeitlichen Rahmen und fachliche
+          Schwerpunkte angepasst werden.
+        </p>
+      </div>
 
 
-      <div class="cards">
+      <div class="area-grid">
 
-        <article class="card inclusion">
-
-          <div class="number">01 · 6 SEMINARE</div>
+        <article class="area-card">
+          <div class="area-icon icon-green">01</div>
+          <div class="area-number">01 · 6 SEMINARE</div>
 
           <h3>Inklusion & Teilhabe</h3>
 
           <p>
-            Barrieren erkennen und abbauen, Teilhabe ermöglichen
-            und inklusive Zusammenarbeit nachhaltig gestalten.
+            Barrieren erkennen und abbauen, Teilhabe ermöglichen und inklusive
+            Zusammenarbeit nachhaltig gestalten.
           </p>
 
+          <a href="#inklusion">Seminare ansehen →</a>
         </article>
 
 
-        <article class="card education">
-
-          <div class="number">02 · 5 SEMINARE</div>
+        <article class="area-card">
+          <div class="area-icon icon-gold">02</div>
+          <div class="area-number">02 · 5 SEMINARE</div>
 
           <h3>Pädagogik & Ausbildung</h3>
 
           <p>
-            Pädagogische Kompetenzen stärken,
-            Lernprozesse professionell gestalten und
-            Ausbildung praxisnah begleiten.
+            Pädagogische Kompetenzen stärken, Lernprozesse professionell
+            gestalten und Ausbildung praxisnah begleiten.
           </p>
 
+          <a href="#paedagogik">Seminare ansehen →</a>
         </article>
 
 
-        <article class="card social">
-
-          <div class="number">03 · 3 SEMINARE</div>
+        <article class="area-card">
+          <div class="area-icon icon-terra">03</div>
+          <div class="area-number">03 · 3 SEMINARE</div>
 
           <h3>Gesundheits- & Sozialwesen</h3>
 
           <p>
-            Verständliches Fachwissen zu Strukturen,
-            Rechnungswesen und Qualitätsmanagement
-            im Gesundheits- und Sozialwesen.
+            Verständliches Fachwissen zu Strukturen, Rechnungswesen und
+            Qualitätsmanagement im Gesundheits- und Sozialwesen.
           </p>
 
+          <a href="#gesundheitswesen">Seminare ansehen →</a>
         </article>
 
 
-        <article class="card health">
-
-          <div class="number">04 · 3 SEMINARE</div>
+        <article class="area-card">
+          <div class="area-icon icon-blue">04</div>
+          <div class="area-number">04 · 3 SEMINARE</div>
 
           <h3>Gesundheit & Resilienz</h3>
 
           <p>
-            Psychische Gesundheit stärken,
-            Ressourcen fördern und einen gesunden
-            Arbeitsalltag gemeinsam gestalten.
+            Psychische Gesundheit stärken, Ressourcen fördern und einen
+            gesunden Arbeitsalltag gemeinsam gestalten.
           </p>
 
+          <a href="#resilienz">Seminare ansehen →</a>
         </article>
 
       </div>
 
     </div>
-
   </section>
 
 
+  <section class="seminar-detail-section">
 
-  <section class="about" id="ueber-mich">
+    <div class="container">
 
-    <div class="container about-grid">
+      <div class="seminar-category" id="inklusion">
 
-      <div class="about-text">
+        <div class="section-kicker">Inklusion & Teilhabe</div>
+        <h3>Seminarangebote</h3>
 
-        <div class="section-label">Über mich</div>
+        <div class="seminar-list">
+          <div class="seminar-item">
+            Neurodiversität verstehen und Potenziale fördern
+          </div>
 
-        <h2>
-          Fachwissen trifft Praxis.
-        </h2>
+          <div class="seminar-item">
+            Körperliche Behinderungen im Berufs- und Bildungsalltag
+          </div>
 
-        <p>
-          Ich bin Niklas Gorczynski, Fachdozent,
-          Bildungsreferent und AEVO-Ausbilder.
-        </p>
+          <div class="seminar-item">
+            Ableismus erkennen und reflektieren
+          </div>
 
-        <p>
-          In meiner Bildungsarbeit verbinde ich Erfahrungen aus
-          Pädagogik, Erwachsenenbildung, Gesundheits- und Sozialwesen
-          sowie Inklusion.
-        </p>
+          <div class="seminar-item">
+            Selbstbestimmung und Empowerment bei Behinderung
+          </div>
 
-        <p>
-          Mein Anspruch ist es, komplexe Inhalte verständlich,
-          anwendungsorientiert und nah am tatsächlichen Berufs-
-          und Bildungsalltag zu vermitteln.
-        </p>
+          <div class="seminar-item">
+            Rechtliche Grundlagen der Inklusion und Teilhabe
+          </div>
+
+          <div class="seminar-item">
+            Inklusive Organisationsentwicklung
+          </div>
+        </div>
 
       </div>
 
 
-      <aside class="about-box">
+      <div class="seminar-category" id="paedagogik">
+
+        <div class="section-kicker">Pädagogik & Ausbildung</div>
+        <h3>Seminarangebote</h3>
+
+        <div class="seminar-list">
+          <div class="seminar-item gold">
+            Vorbereitung auf die Ausbildereignungsprüfung (AEVO)
+          </div>
+
+          <div class="seminar-item gold">
+            Inklusive Freizeitpädagogik – Bewegung & Kreativität
+          </div>
+
+          <div class="seminar-item gold">
+            Pädagogische Konzepte und Ansätze im Überblick
+          </div>
+
+          <div class="seminar-item gold">
+            Rechtliche Grundlagen in pädagogischen Arbeitsfeldern
+          </div>
+
+          <div class="seminar-item gold">
+            Entwicklungspsychologie in der pädagogischen Praxis
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="seminar-category" id="gesundheitswesen">
+
+        <div class="section-kicker">Gesundheits- & Sozialwesen</div>
+        <h3>Seminarangebote</h3>
+
+        <div class="seminar-list">
+          <div class="seminar-item terra">
+            Aufbau & Organisation des Gesundheits- und Sozialwesens
+          </div>
+
+          <div class="seminar-item terra">
+            Rechnungswesen im Gesundheits- und Sozialwesen
+          </div>
+
+          <div class="seminar-item terra">
+            Qualitätsmanagement im Gesundheits- und Sozialwesen
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="seminar-category" id="resilienz">
+
+        <div class="section-kicker">Gesundheit & Resilienz</div>
+        <h3>Seminarangebote</h3>
+
+        <div class="seminar-list">
+          <div class="seminar-item blue">
+            Psychische Gesundheit als Arbeitnehmer:in
+          </div>
+
+          <div class="seminar-item blue">
+            Psychische Gesundheit als Arbeitgeber:in
+          </div>
+
+          <div class="seminar-item blue">
+            Psychische Gesundheit im Team
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="about-section" id="ueber-mich">
+
+    <div class="container about-grid">
+
+      <div class="about-copy">
+
+        <div class="section-kicker">Über mich</div>
+
+        <h2 class="section-title">
+          Fachwissen trifft Praxis.
+        </h2>
+
+        <p>
+          Ich bin Niklas Gorczynski, Fachdozent, Bildungsreferent und
+          AEVO-Ausbilder.
+        </p>
+
+        <p>
+          Als Fachdozent und Bildungsreferent vermittle ich praxisnahes
+          Fachwissen in den Bereichen Gesundheits- und Sozialwesen,
+          Pädagogik, Erwachsenenbildung sowie Inklusion.
+        </p>
+
+        <p>
+          Durch meine Erfahrungen in Lehre, Sozialberatung und dem
+          Gesundheitswesen verbinde ich fundierte Fachkenntnisse mit
+          praxisorientierten Methoden.
+        </p>
+
+        <p>
+          Persönliche Erfahrungen mit Behinderung und Teilhabe ergänzen
+          meine fachliche Perspektive und prägen mein Verständnis von
+          inklusiver Bildung.
+        </p>
+
+        <a href="#kontakt" class="button button-red">
+          Kontakt aufnehmen
+        </a>
+
+      </div>
+
+
+      <aside class="qualification-card">
 
         <h3>Qualifikationen</h3>
 
@@ -721,84 +1074,137 @@
       </aside>
 
     </div>
-
   </section>
 
 
-
-  <section class="individual" id="individuell">
-
-    <div class="container">
-
-      <div class="section-label">Individuelle Bildungsangebote</div>
-
-      <h2>
-        Nicht das richtige Seminar gefunden?
-      </h2>
-
-      <p>
-        Gerne entwickle ich individuelle Fachvorträge,
-        Workshops oder Seminare – passgenau auf die Anforderungen
-        Ihrer Einrichtung, Ihres Unternehmens oder Ihrer Zielgruppe
-        abgestimmt.
-      </p>
-
-      <a href="#kontakt" class="button button-primary">
-        Bildungsangebot anfragen
-      </a>
-
-    </div>
-
-  </section>
-
-
-
-  <section class="contact" id="kontakt">
+  <section class="why-section">
 
     <div class="container">
 
-      <div class="section-label" style="color:#ffffff;">
-        Kontakt
+      <div class="why-heading">
+        <div class="section-kicker">Warum mit mir arbeiten?</div>
       </div>
 
-      <h2>
-        Lassen Sie uns ins Gespräch kommen.
-      </h2>
+      <div class="why-grid">
 
-      <p>
-        Sie interessieren sich für einen Fachvortrag,
-        einen Workshop oder ein Seminar?
-        Ich freue mich darauf, gemeinsam ein passendes
-        Bildungsangebot zu entwickeln.
-      </p>
+        <div class="why-item">
+          <div class="why-symbol">01</div>
+          <h4>Praxisnah & verständlich</h4>
+          <p>
+            Komplexe Inhalte klar erklärt und direkt anwendbar.
+          </p>
+        </div>
 
-      <a
-        class="email"
-        href="mailto:conexus.bildung.inklusion@web.de"
-      >
-        conexus.bildung.inklusion@web.de
-      </a>
+        <div class="why-item">
+          <div class="why-symbol">02</div>
+          <h4>Individuell & flexibel</h4>
+          <p>
+            Anpassung an Zielgruppe, Themen und Rahmenbedingungen.
+          </p>
+        </div>
+
+        <div class="why-item">
+          <div class="why-symbol">03</div>
+          <h4>Erfahren & qualifiziert</h4>
+          <p>
+            Verbindung aus Fachwissen, beruflicher Praxis und Didaktik.
+          </p>
+        </div>
+
+        <div class="why-item">
+          <div class="why-symbol">04</div>
+          <h4>Nachhaltig & wirksam</h4>
+          <p>
+            Wissen, das im Berufs- und Bildungsalltag weiterwirkt.
+          </p>
+        </div>
+
+      </div>
 
     </div>
-
   </section>
 
+
+  <section class="custom-section" id="individuell">
+
+    <div class="container">
+
+      <div class="custom-box">
+
+        <div class="custom-icon">+</div>
+
+        <div>
+          <h3>Nicht das richtige Seminar gefunden?</h3>
+
+          <p>
+            Gerne entwickle ich individuelle Fachvorträge, Workshops oder
+            Seminare – passgenau auf die Anforderungen Ihrer Einrichtung,
+            Ihres Unternehmens oder Ihrer Zielgruppe abgestimmt.
+          </p>
+        </div>
+
+        <a href="#kontakt" class="button button-red">
+          Bildungsangebot anfragen
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="contact-section" id="kontakt">
+
+    <div class="container contact-grid">
+
+      <div>
+
+        <div class="section-kicker" style="color:white;">
+          Kontakt
+        </div>
+
+        <h2 class="section-title">
+          Lassen Sie uns ins Gespräch kommen.
+        </h2>
+
+        <p>
+          Sie interessieren sich für einen Fachvortrag, einen Workshop oder
+          ein Seminar? Ich freue mich darauf, gemeinsam ein passendes
+          Bildungsangebot zu entwickeln.
+        </p>
+
+      </div>
+
+
+      <div class="contact-details">
+
+        <a href="mailto:conexus.bildung.inklusion@web.de">
+          ✉ conexus.bildung.inklusion@web.de
+        </a>
+
+        <a href="tel:+4915738993227">
+          ☎ 01573 / 8993227
+        </a>
+
+      </div>
+
+    </div>
+  </section>
 
 
   <footer>
 
-    <div class="container">
+    <div class="container footer-inner">
 
-      <span>
+      <div>
         © 2026 Conexus – Bildung & Inklusion
-      </span>
+      </div>
 
-      <span>
+      <div>
         Niklas Gorczynski · Fachdozent | Bildungsreferent | AEVO-Ausbilder
-      </span>
+      </div>
 
     </div>
-
   </footer>
 
 </body>
