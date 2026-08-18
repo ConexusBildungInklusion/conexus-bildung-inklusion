@@ -635,9 +635,6 @@
       border-radius: 28px;
       padding: 34px 30px;
       border: 1px solid rgba(37,85,78,0.08);
-      display: flex;
-      flex-direction: column;
-      height: 100%;
     }
 
     .download-symbol {
@@ -668,7 +665,6 @@
     .download-card p {
       font-size: 0.96rem;
       margin-bottom: 24px;
-      flex-grow: 1;
     }
 
     .download-card .button {
@@ -676,6 +672,141 @@
       min-height: 58px;
       padding: 15px 18px;
       text-align: center;
+    }
+
+
+    /* ANFRAGEFORMULAR */
+
+    .request-section {
+      background: white;
+    }
+
+    .request-heading {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 46px;
+    }
+
+    .request-heading .section-intro {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .request-form {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--beige);
+      border-radius: 30px;
+      padding: 42px;
+      box-shadow: 0 14px 34px rgba(37,85,78,0.06);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label,
+    .checkbox-row label {
+      color: var(--green-dark);
+      font-weight: 700;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid rgba(37,85,78,0.22);
+      border-radius: 14px;
+      background: white;
+      color: var(--text);
+      font: inherit;
+      padding: 14px 15px;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(37,85,78,0.10);
+    }
+
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .checkbox-row {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.92rem;
+    }
+
+    .checkbox-row input {
+      margin-top: 5px;
+      accent-color: var(--green);
+    }
+
+    .checkbox-row a {
+      color: var(--green);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .form-actions {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .form-submit {
+      border: 0;
+      cursor: pointer;
+    }
+
+    .form-status {
+      color: var(--green);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .seminar-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .seminar-request-link {
+      flex: 0 0 auto;
+      border: 0;
+      background: transparent;
+      color: var(--red);
+      font-family: "League Spartan", sans-serif;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .seminar-request-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     /* CONTACT */
@@ -988,8 +1119,19 @@
       .about-grid,
       .why-grid,
       .download-grid,
-      .contact-grid {
+      .contact-grid,
+      .form-grid {
         grid-template-columns: 1fr;
+      }
+
+      .request-form {
+        padding: 30px 22px;
+      }
+
+      .seminar-item {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
       }
 
       .custom-box {
@@ -1060,7 +1202,7 @@
           <li><a href="#individuell">Individuelle Angebote</a></li>
           <li><a href="#downloads">Downloads</a></li>
           <li><a href="#kontakt">Kontakt</a></li>
-          <li><a class="nav-cta" href="#kontakt">Anfrage stellen</a></li>
+          <li><a class="nav-cta" href="#anfrage">Anfrage stellen</a></li>
         </ul>
 
       </nav>
@@ -1204,27 +1346,33 @@
 
         <div class="seminar-list">
           <div class="seminar-item">
-            Neurodiversität verstehen und Potenziale fördern
+            <span>Neurodiversität verstehen und Potenziale fördern</span>
+            <button type="button" class="seminar-request-link" data-seminar="Neurodiversität verstehen und Potenziale fördern">Seminar anfragen →</button>
           </div>
 
           <div class="seminar-item">
-            Körperliche Behinderungen im Berufs- und Bildungsalltag
+            <span>Körperliche Behinderungen im Berufs- und Bildungsalltag</span>
+            <button type="button" class="seminar-request-link" data-seminar="Körperliche Behinderungen im Berufs- und Bildungsalltag">Seminar anfragen →</button>
           </div>
 
           <div class="seminar-item">
-            Ableismus erkennen und reflektieren
+            <span>Ableismus erkennen und reflektieren</span>
+            <button type="button" class="seminar-request-link" data-seminar="Ableismus erkennen und reflektieren">Seminar anfragen →</button>
           </div>
 
           <div class="seminar-item">
-            Selbstbestimmung und Empowerment bei Behinderung
+            <span>Selbstbestimmung und Empowerment bei Behinderung</span>
+            <button type="button" class="seminar-request-link" data-seminar="Selbstbestimmung und Empowerment bei Behinderung">Seminar anfragen →</button>
           </div>
 
           <div class="seminar-item">
-            Rechtliche Grundlagen der Inklusion und Teilhabe
+            <span>Rechtliche Grundlagen der Inklusion und Teilhabe</span>
+            <button type="button" class="seminar-request-link" data-seminar="Rechtliche Grundlagen der Inklusion und Teilhabe">Seminar anfragen →</button>
           </div>
 
           <div class="seminar-item">
-            Inklusive Organisationsentwicklung
+            <span>Inklusive Organisationsentwicklung</span>
+            <button type="button" class="seminar-request-link" data-seminar="Inklusive Organisationsentwicklung">Seminar anfragen →</button>
           </div>
         </div>
 
@@ -1238,23 +1386,28 @@
 
         <div class="seminar-list">
           <div class="seminar-item gold">
-            Vorbereitung auf die Ausbildereignungsprüfung (AEVO)
+            <span>Vorbereitung auf die Ausbildereignungsprüfung (AEVO)</span>
+            <button type="button" class="seminar-request-link" data-seminar="Vorbereitung auf die Ausbildereignungsprüfung (AEVO)">Seminar anfragen →</button>
           </div>
 
           <div class="seminar-item gold">
-            Inklusive Freizeitpädagogik – Bewegung & Kreativität
+            <span>Inklusive Freizeitpädagogik – Bewegung & Kreativität</span>
+            <button type="button" class="seminar-request-link" data-seminar="Inklusive Freizeitpädagogik – Bewegung & Kreativität">Seminar anfragen →</button>
           </div>
 
           <div class="seminar-item gold">
-            Pädagogische Konzepte und Ansätze im Überblick
+            <span>Pädagogische Konzepte und Ansätze im Überblick</span>
+            <button type="button" class="seminar-request-link" data-seminar="Pädagogische Konzepte und Ansätze im Überblick">Seminar anfragen →</button>
           </div>
 
           <div class="seminar-item gold">
-            Rechtliche Grundlagen in pädagogischen Arbeitsfeldern
+            <span>Rechtliche Grundlagen in pädagogischen Arbeitsfeldern</span>
+            <button type="button" class="seminar-request-link" data-seminar="Rechtliche Grundlagen in pädagogischen Arbeitsfeldern">Seminar anfragen →</button>
           </div>
 
           <div class="seminar-item gold">
-            Entwicklungspsychologie in der pädagogischen Praxis
+            <span>Entwicklungspsychologie in der pädagogischen Praxis</span>
+            <button type="button" class="seminar-request-link" data-seminar="Entwicklungspsychologie in der pädagogischen Praxis">Seminar anfragen →</button>
           </div>
         </div>
 
@@ -1268,15 +1421,18 @@
 
         <div class="seminar-list">
           <div class="seminar-item terra">
-            Aufbau & Organisation des Gesundheits- und Sozialwesens
+            <span>Aufbau & Organisation des Gesundheits- und Sozialwesens</span>
+            <button type="button" class="seminar-request-link" data-seminar="Aufbau & Organisation des Gesundheits- und Sozialwesens">Seminar anfragen →</button>
           </div>
 
           <div class="seminar-item terra">
-            Rechnungswesen im Gesundheits- und Sozialwesen
+            <span>Rechnungswesen im Gesundheits- und Sozialwesen</span>
+            <button type="button" class="seminar-request-link" data-seminar="Rechnungswesen im Gesundheits- und Sozialwesen">Seminar anfragen →</button>
           </div>
 
           <div class="seminar-item terra">
-            Qualitätsmanagement im Gesundheits- und Sozialwesen
+            <span>Qualitätsmanagement im Gesundheits- und Sozialwesen</span>
+            <button type="button" class="seminar-request-link" data-seminar="Qualitätsmanagement im Gesundheits- und Sozialwesen">Seminar anfragen →</button>
           </div>
         </div>
 
@@ -1290,15 +1446,18 @@
 
         <div class="seminar-list">
           <div class="seminar-item blue">
-            Psychische Gesundheit als Arbeitnehmer:in
+            <span>Psychische Gesundheit als Arbeitnehmer:in</span>
+            <button type="button" class="seminar-request-link" data-seminar="Psychische Gesundheit als Arbeitnehmer:in">Seminar anfragen →</button>
           </div>
 
           <div class="seminar-item blue">
-            Psychische Gesundheit als Arbeitgeber:in
+            <span>Psychische Gesundheit als Arbeitgeber:in</span>
+            <button type="button" class="seminar-request-link" data-seminar="Psychische Gesundheit als Arbeitgeber:in">Seminar anfragen →</button>
           </div>
 
           <div class="seminar-item blue">
-            Psychische Gesundheit im Team
+            <span>Psychische Gesundheit im Team</span>
+            <button type="button" class="seminar-request-link" data-seminar="Psychische Gesundheit im Team">Seminar anfragen →</button>
           </div>
         </div>
 
@@ -1443,6 +1602,131 @@
     </div>
   </section>
 
+
+
+
+  <section class="request-section" id="anfrage">
+    <div class="container">
+
+      <div class="request-heading">
+        <div class="section-kicker">Unverbindliche Anfrage</div>
+        <h2 class="section-title">Welches Bildungsangebot passt zu Ihnen?</h2>
+        <p class="section-intro">
+          Wählen Sie ein Seminar aus und senden Sie mir die wichtigsten
+          Eckdaten. Ich melde mich anschließend persönlich bei Ihnen zurück.
+        </p>
+      </div>
+
+      <form class="request-form" id="seminarRequestForm"
+            action="https://api.web3forms.com/submit" method="POST">
+
+        <input type="hidden" name="access_key"
+               value="9d895ef4-50ab-48f7-a302-5f071be66f15">
+        <input type="hidden" name="subject"
+               value="Neue Seminaranfrage über die Conexus-Website">
+        <input type="checkbox" name="botcheck" style="display:none;">
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="request-name">Name / Ansprechpartner:in *</label>
+            <input id="request-name" type="text" name="name" autocomplete="name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="request-organisation">Unternehmen / Einrichtung</label>
+            <input id="request-organisation" type="text" name="organisation" autocomplete="organization">
+          </div>
+
+          <div class="form-group">
+            <label for="request-email">E-Mail-Adresse *</label>
+            <input id="request-email" type="email" name="email" autocomplete="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="request-phone">Telefon</label>
+            <input id="request-phone" type="tel" name="telefon" autocomplete="tel">
+          </div>
+
+          <div class="form-group full">
+            <label for="seminar-select">Seminar auswählen *</label>
+            <select id="seminar-select" name="seminar" required>
+              <option value="" selected disabled>Bitte Seminar auswählen</option>
+              <option value="Neurodiversität verstehen und Potenziale fördern">Neurodiversität verstehen und Potenziale fördern</option>
+              <option value="Körperliche Behinderungen im Berufs- und Bildungsalltag">Körperliche Behinderungen im Berufs- und Bildungsalltag</option>
+              <option value="Ableismus erkennen und reflektieren">Ableismus erkennen und reflektieren</option>
+              <option value="Selbstbestimmung und Empowerment bei Behinderung">Selbstbestimmung und Empowerment bei Behinderung</option>
+              <option value="Rechtliche Grundlagen der Inklusion und Teilhabe">Rechtliche Grundlagen der Inklusion und Teilhabe</option>
+              <option value="Inklusive Organisationsentwicklung">Inklusive Organisationsentwicklung</option>
+              <option value="Vorbereitung auf die Ausbildereignungsprüfung (AEVO)">Vorbereitung auf die Ausbildereignungsprüfung (AEVO)</option>
+              <option value="Inklusive Freizeitpädagogik – Bewegung & Kreativität">Inklusive Freizeitpädagogik – Bewegung & Kreativität</option>
+              <option value="Pädagogische Konzepte und Ansätze im Überblick">Pädagogische Konzepte und Ansätze im Überblick</option>
+              <option value="Rechtliche Grundlagen in pädagogischen Arbeitsfeldern">Rechtliche Grundlagen in pädagogischen Arbeitsfeldern</option>
+              <option value="Entwicklungspsychologie in der pädagogischen Praxis">Entwicklungspsychologie in der pädagogischen Praxis</option>
+              <option value="Aufbau & Organisation des Gesundheits- und Sozialwesens">Aufbau & Organisation des Gesundheits- und Sozialwesens</option>
+              <option value="Rechnungswesen im Gesundheits- und Sozialwesen">Rechnungswesen im Gesundheits- und Sozialwesen</option>
+              <option value="Qualitätsmanagement im Gesundheits- und Sozialwesen">Qualitätsmanagement im Gesundheits- und Sozialwesen</option>
+              <option value="Psychische Gesundheit als Arbeitnehmer:in">Psychische Gesundheit als Arbeitnehmer:in</option>
+              <option value="Psychische Gesundheit als Arbeitgeber:in">Psychische Gesundheit als Arbeitgeber:in</option>
+              <option value="Psychische Gesundheit im Team">Psychische Gesundheit im Team</option>
+              <option value="Individuelles Angebot">Individuelles Angebot / anderes Thema</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="request-format">Format</label>
+            <select id="request-format" name="format">
+              <option value="Noch offen">Noch offen</option>
+              <option value="Präsenz">Präsenz</option>
+              <option value="Online">Online</option>
+              <option value="Hybrid">Hybrid</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="request-participants">Teilnehmerzahl</label>
+            <input id="request-participants" type="number" name="teilnehmerzahl" min="1" placeholder="z. B. 15">
+          </div>
+
+          <div class="form-group">
+            <label for="request-date">Wunschtermin</label>
+            <input id="request-date" type="date" name="wunschtermin">
+          </div>
+
+          <div class="form-group">
+            <label for="request-location">Ort / Veranstaltungsort</label>
+            <input id="request-location" type="text" name="veranstaltungsort"
+                   placeholder="z. B. Düsseldorf oder online">
+          </div>
+
+          <div class="form-group full">
+            <label for="request-message">Nachricht / individuelle Wünsche *</label>
+            <textarea id="request-message" name="message"
+                      placeholder="Was ist Ihnen für das Seminar besonders wichtig?"
+                      required></textarea>
+          </div>
+
+          <div class="checkbox-row">
+            <input id="privacy-consent" type="checkbox"
+                   name="datenschutz_bestaetigt" value="Ja" required>
+            <label for="privacy-consent">
+              Ich habe die <a href="#datenschutz">Datenschutzerklärung</a>
+              zur Kenntnis genommen und stimme der Übermittlung meiner Angaben
+              zur Bearbeitung dieser Anfrage zu. *
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="button button-red form-submit">
+              Unverbindlich anfragen
+            </button>
+            <span class="form-status" id="formStatus" aria-live="polite"></span>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </section>
 
 
   <section class="downloads-section" id="downloads">
@@ -1640,14 +1924,32 @@
         Europäischen Union stattfinden.
       </p>
 
-      <h3>5. Cookies, Analyse und Kontaktformulare</h3>
+      <h3>5. Anfrageformular über Web3Forms</h3>
       <p>
-        Auf dieser Website setze ich derzeit keine eigenen Analyse- oder
-        Marketingtools, kein Kontaktformular und keine eigenen nicht technisch
-        erforderlichen Cookies ein.
+        Für das Anfrageformular nutze ich den Dienst Web3Forms. Wenn Sie das
+        Formular absenden, werden die von Ihnen eingegebenen Daten an Web3Forms
+        übermittelt und zur Zustellung der Anfrage an meine E-Mail-Adresse
+        verarbeitet. Weitere Informationen finden Sie in der
+        <a href="https://web3forms.com/privacy"
+           target="_blank" rel="noopener noreferrer">
+          Datenschutzerklärung von Web3Forms
+        </a>.
+      </p>
+      <p>
+        Nach Angaben des Anbieters befinden sich die eingesetzten Server in den
+        USA. Dadurch kann eine Verarbeitung personenbezogener Daten außerhalb
+        der Europäischen Union stattfinden. Bitte übermitteln Sie über das
+        Formular nur Angaben, die für Ihre Anfrage erforderlich sind.
       </p>
 
-      <h3>6. Ihre Rechte</h3>
+      <h3>6. Cookies und Analyse</h3>
+      <p>
+        Auf dieser Website setze ich derzeit keine eigenen Analyse- oder
+        Marketingtools und keine eigenen nicht technisch erforderlichen
+        Cookies ein.
+      </p>
+
+      <h3>7. Ihre Rechte</h3>
       <p>
         Sie haben im Rahmen der gesetzlichen Voraussetzungen insbesondere das
         Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der
@@ -1655,7 +1957,7 @@
         ein Beschwerderecht bei einer zuständigen Datenschutzaufsichtsbehörde.
       </p>
 
-      <h3>7. Aktualität</h3>
+      <h3>8. Aktualität</h3>
       <p>
         Diese Datenschutzerklärung wird angepasst, wenn sich die eingesetzten
         Dienste oder die Datenverarbeitung auf dieser Website ändern.
@@ -1695,6 +1997,52 @@
         backToTop.classList.add("visible");
       } else {
         backToTop.classList.remove("visible");
+      }
+    });
+
+    const seminarSelect = document.getElementById("seminar-select");
+    document.querySelectorAll(".seminar-request-link").forEach((button) => {
+      button.addEventListener("click", () => {
+        seminarSelect.value = button.dataset.seminar;
+        document.getElementById("anfrage").scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      });
+    });
+
+    const seminarRequestForm = document.getElementById("seminarRequestForm");
+    const formStatus = document.getElementById("formStatus");
+
+    seminarRequestForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const submitButton = seminarRequestForm.querySelector('button[type="submit"]');
+      const originalText = submitButton.textContent;
+
+      submitButton.disabled = true;
+      submitButton.textContent = "Wird gesendet …";
+      formStatus.textContent = "";
+
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: new FormData(seminarRequestForm)
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          formStatus.textContent = "Vielen Dank! Ihre Anfrage wurde erfolgreich versendet.";
+          seminarRequestForm.reset();
+        } else {
+          formStatus.textContent = "Das hat leider nicht geklappt. Bitte versuchen Sie es erneut oder schreiben Sie mir eine E-Mail.";
+        }
+      } catch (error) {
+        formStatus.textContent = "Das hat leider nicht geklappt. Bitte versuchen Sie es erneut oder schreiben Sie mir eine E-Mail.";
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
       }
     });
   </script>
