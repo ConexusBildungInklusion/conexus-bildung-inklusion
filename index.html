@@ -981,6 +981,35 @@
 
     /* NACH-OBEN-BUTTON */
 
+    .read-aloud {
+      position: fixed;
+      right: 24px;
+      bottom: 88px;
+      width: 52px;
+      height: 52px;
+      border: 0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--green);
+      color: white;
+      font-size: 1.25rem;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.18);
+      z-index: 100;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .read-aloud:hover {
+      transform: translateY(-2px);
+    }
+
+    .read-aloud:focus-visible {
+      outline: 3px solid var(--red);
+      outline-offset: 3px;
+    }
+
     .back-to-top {
       position: fixed;
       right: 24px;
@@ -1194,6 +1223,13 @@
 
       .seminar-category {
         padding: 26px 20px 30px;
+      }
+
+      .read-aloud {
+        right: 16px;
+        bottom: 76px;
+        width: 48px;
+        height: 48px;
       }
 
       .back-to-top {
@@ -2025,7 +2061,15 @@
   </footer>
 
 
-  <a href="#start" class="back-to-top" id="backToTop" aria-label="Nach oben">
+    <button
+    class="read-aloud"
+    id="readAloudButton"
+    type="button"
+    aria-label="Seite vorlesen"
+    title="Seite vorlesen"
+  >🔊</button>
+
+<a href="#start" class="back-to-top" id="backToTop" aria-label="Nach oben">
     ↑
   </a>
 
@@ -2075,6 +2119,64 @@
         submitButton.textContent = originalText;
       }
     });
+  </script>
+
+
+  <script>
+    (() => {
+      const button = document.getElementById("readAloudButton");
+      if (!button || !("speechSynthesis" in window)) {
+        if (button) button.hidden = true;
+        return;
+      }
+
+      let utterance = null;
+      let isReading = false;
+
+      const setButtonState = (reading) => {
+        isReading = reading;
+        button.textContent = reading ? "■" : "🔊";
+        button.setAttribute("aria-label", reading ? "Vorlesen stoppen" : "Seite vorlesen");
+        button.setAttribute("title", reading ? "Vorlesen stoppen" : "Seite vorlesen");
+      };
+
+      const getReadableText = () => {
+        const source = document.querySelector("main") || document.body;
+        const clone = source.cloneNode(true);
+
+        clone.querySelectorAll(
+          "script, style, nav, footer, form, button, .read-aloud, .back-to-top, [aria-hidden='true']"
+        ).forEach(el => el.remove());
+
+        return clone.innerText.replace(/\s+/g, " ").trim();
+      };
+
+      button.addEventListener("click", () => {
+        if (isReading) {
+          window.speechSynthesis.cancel();
+          setButtonState(false);
+          return;
+        }
+
+        const textToRead = getReadableText();
+        if (!textToRead) return;
+
+        window.speechSynthesis.cancel();
+        utterance = new SpeechSynthesisUtterance(textToRead);
+        utterance.lang = "de-DE";
+        utterance.rate = 1;
+
+        utterance.onend = () => setButtonState(false);
+        utterance.onerror = () => setButtonState(false);
+
+        setButtonState(true);
+        window.speechSynthesis.speak(utterance);
+      });
+
+      window.addEventListener("beforeunload", () => {
+        window.speechSynthesis.cancel();
+      });
+    })();
   </script>
 
 </body>
